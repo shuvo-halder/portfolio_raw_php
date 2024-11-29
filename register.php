@@ -3,7 +3,7 @@ require('header.php');
 include('nav.php');
 
 $name = $email = $password = $confirm_password = "";
-$name_err = $email_err = $password_err = $confirm_password_err = "";
+$name_err = $email_err = $password_err = $confirm_password_err = $insMsg = $insMsgErr = "";
 $ret_name = $ret_email = $ret_pass = $ret_con_pas = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -52,6 +52,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         
     }
+
+    $stmt = $DBH->prepare("SELECT * FROM users WHERE email='$email'");
+    $stmt->execute();
+    $fetchData = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($fetchData) {
+        $email_err = "Email already register!";
+    }else {
+        // $hashPassword = 
+        $role = 'user';
+        $is_active = 'active';
+        $sql = "INSERT INTO users(name, email, password, role, is_active) VALUES ('$name','$email','$password','$role','$is_active')";
+        $stmt = $DBH->prepare($sql);
+        $save = $stmt->execute();
+        if ($save) {
+            $insMsg = 'Insert succ';
+        }else {
+            $insMsgErr = 'failed';
+        }
+    }
+
 }
 
 
@@ -84,6 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <span class="text-danger"><?= $confirm_password_err ?></span>
                         </div>
                         <br>
+                        <span><?= $insMsg; ?></span>
+                        <span><?= $insMsgErr; ?></span>
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <button type="submit" class="btn btn-secondary">Register</button>
                         </div>
