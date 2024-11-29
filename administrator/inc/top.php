@@ -1,13 +1,5 @@
 <?php
-/**
- * top.php
- *
- * Author: pixelcave
- *
- * The first block of code used in every page of the template
- * Start of html, <head> tag, as well as the header of the page are included here
- *
- */
+require('../inc/database.php');
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
