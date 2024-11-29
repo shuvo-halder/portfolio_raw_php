@@ -1,4 +1,4 @@
-<?php require('inc/database.php'); ?>
+<?php require('database/database.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

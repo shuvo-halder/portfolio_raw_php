@@ -1,5 +1,5 @@
 <?php
-require('../inc/database.php');
+require('../database/database.php');
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
