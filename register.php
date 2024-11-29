@@ -59,10 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($fetchData) {
         $email_err = "Email already register!";
     }else {
-        // $hashPassword = 
+        $hashPassword = password_hash($password, PASSWORD_DEFAULT);
         $role = 'user';
         $is_active = 'active';
-        $sql = "INSERT INTO users(name, email, password, role, is_active) VALUES ('$name','$email','$password','$role','$is_active')";
+        $sql = "INSERT INTO users(name, email, password, role, is_active) VALUES ('$name','$email','$hashPassword','$role','$is_active')";
         $stmt = $DBH->prepare($sql);
         $save = $stmt->execute();
         if ($save) {

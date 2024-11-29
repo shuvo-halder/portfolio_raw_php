@@ -1,6 +1,12 @@
+<?php
+if (!isset($_SESSION['login_succ'])) {
+    header('location:../login.php?login=required');
+}else {
+?>
 <?php include 'inc/config.php'; // Configuration php file ?>
 <?php include 'inc/top.php'; // Meta data and header ?>
 <?php include 'inc/nav.php'; // Navigation content ?>
+
 
 <!-- Page Content -->
 <div id="page-content">
@@ -614,5 +620,7 @@
         });
     });
 </script>
+<?php }
+?>
 
 <?php include 'inc/bottom.php'; // Close body and html tags ?>
