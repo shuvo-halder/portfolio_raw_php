@@ -16,4 +16,3 @@
     <link rel="stylesheet" href="assets/component/style.css">
     <link rel="stylesheet" href="assets/component/responsive.css">
 </head>
-<?php include('nav.php') ?> 

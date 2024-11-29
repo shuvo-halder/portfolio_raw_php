@@ -2,14 +2,14 @@
     <header class="primary">
         <nav class="menu">
             <div class="brand">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="assets/images/logo.png" width="100px">
                 </a>
             </div>
 
             <div id="menu-list">
                 <ul class="nav-list scroll-nav">
-                    <li><a class="scroll-to" href="#">Home</a></li>
+                    <li><a class="scroll-to" href="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">Home</a></li>
                     <li><a class="scroll-to" href="#about">About</a></li>
                     <li><a class="scroll-to" href="#services">Services</a></li>
                     <li><a class="scroll-to" href="#portfolio">Projects</a></li>
