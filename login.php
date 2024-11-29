@@ -40,7 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fetchData = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($fetchData) {
         if (password_verify($password, $fetchData['password'])) {
+            // echo "match korche";
+            echo $fetchData['password'];
             $_SESSION['login_succ'] = $fetchData['id'];
+            header('location:./administrator/index.php?login=login');
+        }else {
+            $insMsgErr = "password match kore nai";
         }
     }else {
         $email_err = "Email pay nai";
